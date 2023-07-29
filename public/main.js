@@ -4,7 +4,7 @@ const btn_home = document.getElementById("btn_home");
 const btn_about = document.getElementById("btn_about");
 
 function audio(){
-  var aux = `<audio autoplay loop><source src="https://zeev-x.github.io/database/media/angels.mp3"></audio`;
+  var aux = `<audio autoplay loop><source src="/assets/audio.mp3"></audio`;
   document.getElementById("audio").innerHTML = aux;
 }
 
@@ -25,6 +25,4 @@ function zeev(){
   document.getElementById("result").innerHTML = teks;
 }
 
-//window.onload = home(),kiwora(),nsfw(),loli();
-//window.onload = home(),zeev();
-window.onload = home();
+window.onload = home(),audio();
