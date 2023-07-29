@@ -24,8 +24,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  /*background: linear-gradient(#000000a4,#000000a4),
-    url(../assets/background.jpg);*/
+  background: linear-gradient(#000000a4,#000000a4),
+    url(../assets/background.jpg);
   background-attachment: fixed;
   background-position: center;
   background-position-y: 35%;
