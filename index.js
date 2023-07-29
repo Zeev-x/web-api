@@ -66,3 +66,12 @@ app.get("/home/osakana", async(req,res) => {
     res.end();
   });
 });
+
+app.get("/home/hentai/genshin", async(req,res) => {
+  fs.readFile("./public/genshin.html",(err,data) => {
+    if(err) return res.json({mess : 'error code 404'});
+    res.writeHead(200,{"Content-Type" : "text/html"});
+    res.write(data);
+    res.end();
+  });
+});
