@@ -75,3 +75,12 @@ app.get("/home/hentai/genshin", async(req,res) => {
     res.end();
   });
 });
+
+app.get("/home/hentai/ai", async(req,res) => {
+  fs.readFile("./public/ai-waifu.html",(err,data) => {
+    if(err) return res.json({mess : 'error code 404'});
+    res.writeHead(200,{"Content-Type" : "text/html"});
+    res.write(data);
+    res.end();
+  });
+});
