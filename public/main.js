@@ -3,7 +3,7 @@ const page_about = document.getElementById("con_about");
 const btn_home = document.getElementById("btn_home");
 const btn_about = document.getElementById("btn_about");
 
-function audio(){
+function audiox(){
   var aux = `<audio autoplay loop><source src="/assets/audio.mp3"></audio`;
   document.getElementById("audio").innerHTML = aux;
 }
@@ -23,6 +23,14 @@ function about(){
 function zeev(){
   var teks = `<h1>The website is currently undergoing maintenance</h1>`
   document.getElementById("result").innerHTML = teks;
+}
+
+function audio(){
+  var conf = confirm("Apakah kamu ingin memutar audio?");
+  if(conf){
+    window.onload = audiox();
+  } else {
+    alert("Oke website ini akan mematikan audionya");
 }
 
 window.onload = home(),audio();
