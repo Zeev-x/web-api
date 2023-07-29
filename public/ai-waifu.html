@@ -2,20 +2,27 @@
 <html>
   <head>
     <meta charset="UTF-8" name="keywords">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>zeev.io</title>
   </head>
   <body>
-    <div align="center">
-      <h1>Ai Waifu</h1>
-    </div>
-    <hr color="black">
-    <div align="center">
-      <table border="1" cellpadding="20" style="margin:0;">
+    <nav>
+      <a class="logo" href="#">Database</a>
+    </nav>
+    <br><br>
+    <div class="content" align="center">
+      <table border="1" cellpadding="20">
         <thead>
           <tr align="center">
-            <th colspan="2">
-              <h3>Ai waifu database</h3>
+            <th colspan="5">
+              <h1>Zeev Database</h1>
             </th>
+          </tr>
+          <tr>
+            <th>No</th>
+            <th>Status</th>
+            <th>Dir</th>
+            <th>Link</th>
           </tr>
         </thead>
         <tbody id="image"></tbody>
@@ -23,17 +30,46 @@
       <br><br><br><br><br><br>
     </div>
     <script>
-      
       for(let i = 1; i < 135;i++){
+        var url = `/ai-waifu/zeev-ai-waifu-${i}-image.jpg`
         var web = `<tr>
-                     <td>Database ${i}</td>
-                     <td><a href="/ai-waifu/zeev-ai-waifu-${i}-image.jpg">
-                       Ai_waifu${i}.jpg
+                     <td align="center">${i}</td>
+                     <td  align="center" class="lime">true</td>
+                     <td align="center">${url}</td>
+                     <td><a href="${url}">
+                       Klik di sini
                      </a></td>
                    </tr>`;
         document.getElementById("image").innerHTML += web;
       }
-      
     </script>
+    <style>
+      body {
+        background-color: #ffffff;
+        padding: 0px;
+        margin: 0px;
+      }
+      .logo {
+        font-family: Courier;
+        color: #000000;
+        font-size: 30px;
+        font-weight: bold;
+      }
+      a {
+        text-decoration: none;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        background-clip: #FFFFFF;
+        box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
+        padding: 0px 5%;
+      }
+      .lime {
+        color: lime;
+      }
+    </style>
   </body>
 </html>
