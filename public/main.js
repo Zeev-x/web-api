@@ -3,7 +3,7 @@ const page_about = document.getElementById("con_about");
 const btn_home = document.getElementById("btn_home");
 const btn_about = document.getElementById("btn_about");
 
-function audiox(){
+function audio(){
   var aux = `<audio autoplay loop><source src="/assets/audio.mp3"></audio`;
   document.getElementById("audio").innerHTML = aux;
 }
@@ -25,12 +25,5 @@ function zeev(){
   document.getElementById("result").innerHTML = teks;
 }
 
-function audio(){
-  var conf = confirm("Apakah kamu ingin memutar audio?");
-  if(conf){
-    window.onload = audiox();
-  } else {
-    alert("Oke website ini akan mematikan audionya");
-}
 
 window.onload = home(),audio();
