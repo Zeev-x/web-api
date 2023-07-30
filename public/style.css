@@ -50,6 +50,8 @@
       }
       #con_about {
         display: none;
+        width: 70%;
+        margin: auto;
       }
       #result {
         text-align: center;
