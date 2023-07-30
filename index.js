@@ -3,6 +3,12 @@ const path = require("path");
 const fs = require("fs");
 const app = express();
 const port = process.env.PORT || 8080;
+const { ayaka,
+        bocchi,
+        bunny,
+        genshin,
+        osakana,
+        waifuAi } = require("./config");
 
 const conf = express.static(path.resolve("./public"));
 app.use(conf);
@@ -82,5 +88,43 @@ app.get("/home/hentai/ai", async(req,res) => {
     res.writeHead(200,{"Content-Type" : "text/html"});
     res.write(data);
     res.end();
+  });
+});
+
+//API out
+
+app.get("/home/api/ayaka", async (req,res) => {
+  ayaka().then(data => {
+    res.json(data);
+  });
+});
+
+app.get("/home/api/bocchi", async (req,res) => {
+  bocchi().then(data => {
+    res.json(data);
+  });
+});
+
+app.get("/home/api/bunny", async (req,res) => {
+  bunny().then(data => {
+    res.json(data);
+  });
+});
+
+app.get("/home/api/genshin", async (req,res) => {
+  genshin().then(data => {
+    res.json(data);
+  });
+});
+
+app.get("/home/api/osakana", async (req,res) => {
+  osakana().then(data => {
+    res.json(data);
+  });
+});
+
+app.get("/home/api/ai-waifu", async (req,res) => {
+  waifuAi().then(data => {
+    res.json(data);
   });
 });
