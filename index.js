@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+const { gempa } = require("zeev-gempa");
 const app = express();
 const port = process.env.PORT || 8080;
 const { ayaka,
@@ -125,6 +126,12 @@ app.get("/home/api/osakana", async (req,res) => {
 
 app.get("/home/api/ai-waifu", async (req,res) => {
   waifuAi().then(data => {
+    res.json(data);
+  });
+});
+
+app.get("/home/api/gempa", async (req,res) => {
+  gempa().then(data => {
     res.json(data);
   });
 });
