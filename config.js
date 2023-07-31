@@ -6,8 +6,7 @@ function waifuAi(){
       status : true,
       name : 'Ai waifu',
       genre : 'Nsfw',
-      url : url,
-      source : 'https://zeevalya.cyclic.app'
+      url : url
     };
     resolve(result);
   }).catch(err => console.log(error));
@@ -21,8 +20,7 @@ function ayaka(){
       status : true,
       name : 'Cosplay Kamisato Ayaka',
       genre : 'Nsfw',
-      url : url,
-      source : 'https://zeevalya.cyclic.app'
+      url : url
     };
     resolve(result);
   }).catch(err => console.log(error));
@@ -37,7 +35,6 @@ function bocchi(){
       name : 'Bocchi Cosplay',
       genre : 'Nsfw',
       url : url,
-      source : 'https://zeevalya.cyclic.app'
     };
     resolve(result);
   }).catch(err => console.log(error));
@@ -51,8 +48,7 @@ function bunny(){
       status : true,
       name : 'Bunny Cosplay',
       genre : 'Nsfw',
-      url : url,
-      source : 'https://zeevalya.cyclic.app'
+      url : url
     };
     resolve(result);
   }).catch(err => console.log(error));
@@ -67,7 +63,6 @@ function ganyu(){
       name : 'Ganyu cosplay',
       genre : 'Nsfw',
       url : url,
-      source : 'https://zeevalya.cyclic.app'
     };
     resolve(result);
   }).catch(err => console.log(error));
@@ -83,7 +78,6 @@ function nahida(){
       name : 'Nahida cosplay',
       genre : 'Nsfw',
       url : url,
-      source : 'https://zeevalya.cyclic.app'
     };
     resolve(result);
   }).catch(err => console.log(error));
@@ -98,7 +92,6 @@ function osakana(){
       name : 'Osakana chan cosplay',
       genre : 'Nsfw',
       url : url,
-      source : 'https://zeevalya.cyclic.app'
     };
     resolve(result);
   }).catch(err => console.log(error));
