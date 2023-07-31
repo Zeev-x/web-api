@@ -16,7 +16,7 @@ function waifuAi(){
 function ayaka(){
   return new Promise((resolve,reject) => {
     var rand = Math.floor(Math.random()*57)+1;
-    var url = `https://zeevalya.cyclic.app/ayaka/zeev-kamisato-ayaka-${rand}-image.jpg`;
+    var url = `https://zeevalya.cyclic.app/ayaka/zeev-kamisato-${rand}-image.jpg`;
     var result = {
       status : true,
       name : 'Cosplay Kamisato Ayaka',
@@ -50,6 +50,21 @@ function bunny(){
     var result = {
       status : true,
       name : 'Bunny Cosplay',
+      genre : 'Nsfw',
+      url : url,
+      source : 'https://zeevalya.cyclic.app'
+    };
+    resolve(result);
+  }).catch(err => console.log(error));
+}
+
+function ganyu(){
+  return new Promise((resolve,reject) => {
+    var rand = Math.floor(Math.random()*90)+1;
+    var url = `https://zeevalya.cyclic.app/ganyu/zeev-ganyu-${rand}-image.jpg`;
+    var result = {
+      status : true,
+      name : 'Ganyu cosplay',
       genre : 'Nsfw',
       url : url,
       source : 'https://zeevalya.cyclic.app'
@@ -107,6 +122,7 @@ function osakana(){
 module.exports.ayaka = ayaka;
 module.exports.bocchi = bocchi;
 module.exports.bunny = bunny;
+module.exports.ganyu = ganyu;
 module.exports.genshin = genshin;
 module.exports.nahida = nahida;
 module.exports.osakana = osakana;
