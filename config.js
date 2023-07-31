@@ -73,20 +73,6 @@ function ganyu(){
   }).catch(err => console.log(error));
 }
 
-function genshin(){
-  return new Promise((resolve,reject) => {
-    var rand = Math.floor(Math.random()*348)+1;
-    var url = `https://zeevalya.cyclic.app/genshin/zeev-hentai-genshin-${rand}-image.jpg`;
-    var result = {
-      status : true,
-      name : 'Genshin Impact hentai images',
-      genre : 'Nsfw',
-      url : url,
-      source : 'https://zeevalya.cyclic.app'
-    };
-    resolve(result);
-  }).catch(err => console.log(error));
-}
 
 function nahida(){
   return new Promise((resolve,reject) => {
@@ -123,7 +109,6 @@ module.exports.ayaka = ayaka;
 module.exports.bocchi = bocchi;
 module.exports.bunny = bunny;
 module.exports.ganyu = ganyu;
-module.exports.genshin = genshin;
 module.exports.nahida = nahida;
 module.exports.osakana = osakana;
 module.exports.waifuAi = waifuAi;
