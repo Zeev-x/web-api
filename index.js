@@ -204,7 +204,7 @@ app.get("/home/api/osakana", async (req,res) => {
 });
 
 app.get("/home/api/nahida", async (req,res) => {
-  osakana().then(data => {
+  nahida().then(data => {
     res.json(data);
   });
 });
