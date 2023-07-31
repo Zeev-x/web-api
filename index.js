@@ -85,14 +85,6 @@ app.get("/home/ganyu", async(req,res) => {
   });
 });
 
-app.get("/home/hentai/genshin", async(req,res) => {
-  fs.readFile("./public/genshin.html",(err,data) => {
-    if(err) return res.json({mess : 'error code 404'});
-    res.writeHead(200,{"Content-Type" : "text/html"});
-    res.write(data);
-    res.end();
-  });
-});
 
 app.get("/home/hentai/ai", async(req,res) => {
   fs.readFile("./public/ai-waifu.html",(err,data) => {
@@ -203,12 +195,6 @@ app.get("/home/api/bunny", async (req,res) => {
 
 app.get("/home/api/ganyu", async (req,res) => {
   ganyu().then(data => {
-    res.json(data);
-  });
-});
-
-app.get("/home/api/genshin", async (req,res) => {
-  genshin().then(data => {
     res.json(data);
   });
 });
