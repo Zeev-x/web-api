@@ -17,7 +17,7 @@ function waifuAi(){
 function ayaka(){
   return new Promise((resolve,reject) => {
     var rand = Math.floor(Math.random()*57)+1;
-    var url = `${urlHead}/ayaka/zeev-kamisato-${rand}-image.jpg`;
+    var url = `${urlHead}/ayaka/zeev-kamisato-ayaka-${rand}-image.jpg`;
     var result = {
       status : true,
       name : 'Cosplay Kamisato Ayaka',
