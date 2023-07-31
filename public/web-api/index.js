@@ -236,3 +236,5 @@ app.get("/home/api/gempa", async (req,res) => {
     res.json(data);
   });
 });
+
+//di buat oleh zeev-x
