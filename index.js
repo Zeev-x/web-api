@@ -17,9 +17,7 @@ app.use(conf);
 app.use(express.json());
 app.set("json spaces",1);
 
-app.listen(port,() => {
-  console.log("Website berjalan di http://localhost:"+port);
-});
+app.listen(port);
 
 app.get("/", async(req,res) => {
   fs.readFile("./public/index.html",(err,data) => {
