@@ -1,7 +1,7 @@
 function waifuAi(){
   return new Promise((resolve,reject) => {
     var rand = Math.floor(Math.random()*134)+1;
-    var url = `https://zeevalya.cyclic.app/ai-waifu/zeev-ai-waifu-${rand}-image.jpg`;
+    var url = `https://christ.cyclic.cloud/ai-waifu/zeev-ai-waifu-${rand}-image.jpg`;
     var result = {
       status : true,
       name : 'Ai waifu',
@@ -15,7 +15,7 @@ function waifuAi(){
 function ayaka(){
   return new Promise((resolve,reject) => {
     var rand = Math.floor(Math.random()*57)+1;
-    var url = `https://zeevalya.cyclic.app/ayaka/zeev-kamisato-${rand}-image.jpg`;
+    var url = `https://christ.cyclic.cloud/ayaka/zeev-kamisato-${rand}-image.jpg`;
     var result = {
       status : true,
       name : 'Cosplay Kamisato Ayaka',
@@ -29,7 +29,7 @@ function ayaka(){
 function bocchi(){
   return new Promise((resolve,reject) => {
     var rand = Math.floor(Math.random()*29)+1;
-    var url = `https://zeevalya.cyclic.app/bocchi/zeev-bocchi-${rand}-image.jpg`;
+    var url = `https://christ.cyclic.cloud/bocchi/zeev-bocchi-${rand}-image.jpg`;
     var result = {
       status : true,
       name : 'Bocchi Cosplay',
@@ -43,7 +43,7 @@ function bocchi(){
 function bunny(){
   return new Promise((resolve,reject) => {
     var rand = Math.floor(Math.random()*60)+1;
-    var url = `https://zeevalya.cyclic.app/bunny/zeev-bunny-girls-${rand}-image.jpg`;
+    var url = `https://christ.cyclic.cloud/bunny/zeev-bunny-girls-${rand}-image.jpg`;
     var result = {
       status : true,
       name : 'Bunny Cosplay',
@@ -57,7 +57,7 @@ function bunny(){
 function ganyu(){
   return new Promise((resolve,reject) => {
     var rand = Math.floor(Math.random()*90)+1;
-    var url = `https://zeevalya.cyclic.app/ganyu/zeev-ganyu-${rand}-image.jpg`;
+    var url = `https://christ.cyclic.cloud/ganyu/zeev-ganyu-${rand}-image.jpg`;
     var result = {
       status : true,
       name : 'Ganyu cosplay',
@@ -72,7 +72,7 @@ function ganyu(){
 function nahida(){
   return new Promise((resolve,reject) => {
     var rand = Math.floor(Math.random()*78)+1;
-    var url = `https://zeevalya.cyclic.app/nahida/zeev-nahida-${rand}-image.jpg`;
+    var url = `https://christ.cyclic.cloud/nahida/zeev-nahida-${rand}-image.jpg`;
     var result = {
       status : true,
       name : 'Nahida cosplay',
@@ -86,7 +86,7 @@ function nahida(){
 function osakana(){
   return new Promise((resolve,reject) => {
     var rand = Math.floor(Math.random()*24)+1;
-    var url = `https://zeevalya.cyclic.app/osakana/zeev-osakana-chan-${rand}-image.jpg`;
+    var url = `https://christ.cyclic.cloud/osakana/zeev-osakana-chan-${rand}-image.jpg`;
     var result = {
       status : true,
       name : 'Osakana chan cosplay',
