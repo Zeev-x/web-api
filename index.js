@@ -7,6 +7,7 @@ const port = process.env.PORT || 8080;
 const { ayaka,
         bocchi,
         bunny,
+        ganyu,
         genshin,
         nahida,
         osakana,
@@ -17,7 +18,9 @@ app.use(conf);
 app.use(express.json());
 app.set("json spaces",1);
 
-app.listen(port);
+app.listen(port,() => {
+  console.log("Website berjalan di http://localhost:"+port);
+});
 
 app.get("/", async(req,res) => {
   fs.readFile("./public/index.html",(err,data) => {
@@ -66,6 +69,15 @@ app.get("/home/bunny", async(req,res) => {
 
 app.get("/home/osakana", async(req,res) => {
   fs.readFile("./public/osakana.html",(err,data) => {
+    if(err) return res.json({mess : 'error code 404'});
+    res.writeHead(200,{"Content-Type" : "text/html"});
+    res.write(data);
+    res.end();
+  });
+});
+
+app.get("/home/ganyu", async(req,res) => {
+  fs.readFile("./public/ganyu.html",(err,data) => {
     if(err) return res.json({mess : 'error code 404'});
     res.writeHead(200,{"Content-Type" : "text/html"});
     res.write(data);
@@ -189,6 +201,12 @@ app.get("/home/api/bunny", async (req,res) => {
   });
 });
 
+app.get("/home/api/ganyu", async (req,res) => {
+  ganyu().then(data => {
+    res.json(data);
+  });
+});
+
 app.get("/home/api/genshin", async (req,res) => {
   genshin().then(data => {
     res.json(data);
@@ -202,7 +220,7 @@ app.get("/home/api/osakana", async (req,res) => {
 });
 
 app.get("/home/api/nahida", async (req,res) => {
-  nahida().then(data => {
+  osakana().then(data => {
     res.json(data);
   });
 });
