@@ -4,7 +4,8 @@ const fs = require("fs");
 const { gempa } = require("zeev-gempa");
 const app = express();
 const port = process.env.PORT || 8080;
-const { ayaka,
+const { angela,
+        ayaka,
         bocchi,
         bunny,
         ganyu,
@@ -17,8 +18,15 @@ const conf = express.static(path.resolve("./public"));
 app.use(conf);
 app.use(express.json());
 app.set("json spaces",1);
-
 app.listen(port);
+
+app.get("/home/json/angela.json",async(req,res) => {
+  fs.readFile("./angela.json",(err,data) => {
+    res.writeHead(200,{"Content-Type" : "text/json"});
+    res.write(data);
+    res.end();
+  });
+});
 
 app.get("/", async(req,res) => {
   fs.readFile("./public/index.html",(err,data) => {
@@ -49,6 +57,15 @@ app.get("/home/bocchi", async(req,res) => {
 
 app.get("/home/ayaka", async(req,res) => {
   fs.readFile("./public/ayaka.html",(err,data) => {
+    if(err) return res.json({mess : 'error code 404'});
+    res.writeHead(200,{"Content-Type" : "text/html"});
+    res.write(data);
+    res.end();
+  });
+});
+
+app.get("/home/angela", async(req,res) => {
+  fs.readFile("./public/angela.html",(err,data) => {
     if(err) return res.json({mess : 'error code 404'});
     res.writeHead(200,{"Content-Type" : "text/html"});
     res.write(data);
@@ -172,6 +189,12 @@ app.get("/home/gempa", async(req,res) => {
 });
 
 //API out
+
+app.get("/home/api/angela", async (req,res) => {
+  angela().then(data => {
+    res.json(data);
+  });
+});
 
 app.get("/home/api/ayaka", async (req,res) => {
   ayaka().then(data => {
