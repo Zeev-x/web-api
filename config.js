@@ -16,7 +16,7 @@ function waifuAi(){
 
 function angela(){
   return new Promise((resolve,reject) => {
-    const angela = require("./angela.json");
+    const angela = require("./json/angela.json");
     var rand = Math.floor(Math.random()*angela.length);
     var url = angela[rand].img;
     var result = {
@@ -87,7 +87,7 @@ function ganyu(){
 
 function ghost(){
   return new Promise((resolve,reject) => {
-    const angela = require("./ghost-blade.json");
+    const angela = require("./json/ghost-blade.json");
     var rand = Math.floor(Math.random()*angela.length);
     var url = angela[rand].img;
     var result = {
