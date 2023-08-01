@@ -85,6 +85,20 @@ function ganyu(){
   }).catch((err) => console.log("Error code 404"));
 }
 
+function ghost(){
+  return new Promise((resolve,reject) => {
+    const angela = require("./ghost-blade.json");
+    var rand = Math.floor(Math.random()*angela.length);
+    var url = angela[rand].img;
+    var result = {
+      status : true,
+      name : 'Cosplay Angela',
+      genre : 'Nsfw',
+      url : url
+    };
+    resolve(result);
+  }).catch((err) => console.log("Error code 404"));
+}
 
 function nahida(){
   return new Promise((resolve,reject) => {
@@ -120,6 +134,7 @@ module.exports.ayaka = ayaka;
 module.exports.bocchi = bocchi;
 module.exports.bunny = bunny;
 module.exports.ganyu = ganyu;
+module.exports.ghost = ghost;
 module.exports.nahida = nahida;
 module.exports.osakana = osakana;
 module.exports.waifuAi = waifuAi;
