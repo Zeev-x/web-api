@@ -11,7 +11,22 @@ function waifuAi(){
       url : url
     };
     resolve(result);
-  }).catch(err => console.log(error));
+  }).catch((err) => console.log("Error code 404"));
+}
+
+function angela(){
+  return new Promise((resolve,reject) => {
+    const angela = require("./angela.json");
+    var rand = Math.floor(Math.random()*angela.length);
+    var url = angela[rand].img;
+    var result = {
+      status : true,
+      name : 'Cosplay Angela',
+      genre : 'Nsfw',
+      url : url
+    };
+    resolve(result);
+  }).catch((err) => console.log("Error code 404"));
 }
 
 function ayaka(){
@@ -25,7 +40,7 @@ function ayaka(){
       url : url
     };
     resolve(result);
-  }).catch(err => console.log(error));
+  }).catch((err) => console.log("Error code 404"));
 }
 
 function bocchi(){
@@ -39,7 +54,7 @@ function bocchi(){
       url : url,
     };
     resolve(result);
-  }).catch(err => console.log(error));
+  }).catch((err) => console.log("Error code 404"));
 }
 
 function bunny(){
@@ -53,7 +68,7 @@ function bunny(){
       url : url
     };
     resolve(result);
-  }).catch(err => console.log(error));
+  }).catch((err) => console.log("Error code 404"));
 }
 
 function ganyu(){
@@ -67,7 +82,7 @@ function ganyu(){
       url : url,
     };
     resolve(result);
-  }).catch(err => console.log(error));
+  }).catch((err) => console.log("Error code 404"));
 }
 
 
@@ -82,7 +97,7 @@ function nahida(){
       url : url,
     };
     resolve(result);
-  }).catch(err => console.log(error));
+  }).catch((err) => console.log("Error code 404"));
 }
 
 function osakana(){
@@ -96,10 +111,11 @@ function osakana(){
       url : url,
     };
     resolve(result);
-  }).catch(err => console.log(error));
+  }).catch((err) => console.log("Error code 404"));
 }
 
 
+module.exports.angela = angela;
 module.exports.ayaka = ayaka;
 module.exports.bocchi = bocchi;
 module.exports.bunny = bunny;
