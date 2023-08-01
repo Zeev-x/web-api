@@ -21,7 +21,7 @@ app.set("json spaces",1);
 app.listen(port);
 
 app.get("/home/json/angela.json",async(req,res) => {
-  fs.readFile("./angela.json",(err,data) => {
+  fs.readFile("./json/angela.json",(err,data) => {
     res.writeHead(200,{"Content-Type" : "text/json"});
     res.write(data);
     res.end();
