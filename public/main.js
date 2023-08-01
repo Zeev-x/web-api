@@ -4,8 +4,23 @@ const btn_home = document.getElementById("btn_home");
 const btn_about = document.getElementById("btn_about");
 
 function audio(){
-  var aux = `<audio autoplay loop><source src="/assets/kroncong.mp3"></audio`;
-  document.getElementById("audio").innerHTML = aux;
+  var time = new Date().getHours();
+  if(time <= 4 && time <= 13){
+    var aux1 = `<audio autoplay loop>
+                  <source src="/assets/kroncong.mp3">
+                </audio>`;
+    document.getElementById("audio").innerHTML = aux1;
+  } else if(time <= 13 && time <= 17){
+    var aux2 = `<audio autoplay loop>
+                  <source src="/assets/audio.mp3">
+                </audio>`;
+    document.getElementById("audio").innerHTML = aux2;
+  } else if(time <= 17 || time <= 4){
+    var aux3 = `<audio autoplay loop>
+                  <source src="/assets/angels.mp3">
+                </audio>`;
+    document.getElementById("audio").innerHTML = aux3;
+  }
 }
 
 function home(){ 
