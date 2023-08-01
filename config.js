@@ -92,7 +92,7 @@ function ghost(){
     var url = angela[rand].img;
     var result = {
       status : true,
-      name : 'Cosplay Angela',
+      name : 'Cosplay Ghost Blade',
       genre : 'Nsfw',
       url : url
     };
