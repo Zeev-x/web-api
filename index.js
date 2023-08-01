@@ -9,6 +9,7 @@ const { angela,
         bocchi,
         bunny,
         ganyu,
+        ghost,
         genshin,
         nahida,
         osakana,
@@ -235,6 +236,12 @@ app.get("/home/api/bunny", async (req,res) => {
 
 app.get("/home/api/ganyu", async (req,res) => {
   ganyu().then(data => {
+    res.json(data);
+  });
+});
+
+app.get("/home/api/ghost", async (req,res) => {
+  ghost().then(data => {
     res.json(data);
   });
 });
