@@ -110,6 +110,15 @@ app.get("/home/ganyu", async(req,res) => {
   });
 });
 
+app.get("/home/ghost", async(req,res) => {
+  fs.readFile("./public/ghost.html",(err,data) => {
+    if(err) return res.json({mess : 'error code 404'});
+    res.writeHead(200,{"Content-Type" : "text/html"});
+    res.write(data);
+    res.end();
+  });
+});
+
 
 app.get("/home/hentai/ai", async(req,res) => {
   fs.readFile("./public/ai-waifu.html",(err,data) => {
