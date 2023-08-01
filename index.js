@@ -20,6 +20,7 @@ app.use(express.json());
 app.set("json spaces",1);
 app.listen(port);
 
+//json file
 app.get("/home/json/angela.json",async(req,res) => {
   fs.readFile("./json/angela.json",(err,data) => {
     res.writeHead(200,{"Content-Type" : "text/json"});
@@ -28,6 +29,15 @@ app.get("/home/json/angela.json",async(req,res) => {
   });
 });
 
+app.get("/home/json/ghost-blade.json",async(req,res) => {
+  fs.readFile("./json/ghost-blade.json",(err,data) => {
+    res.writeHead(200,{"Content-Type" : "text/json"});
+    res.write(data);
+    res.end();
+  });
+});
+
+//fungsi
 app.get("/", async(req,res) => {
   fs.readFile("./public/index.html",(err,data) => {
     if(err) return res.json({mess : 'error code 404'});
