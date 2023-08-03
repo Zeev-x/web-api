@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const ytdl = require('ytdl-core');
+const validUrl = require('valid-url');
 const fs = require("fs");
 const { gempa } = require("zeev-gempa");
 const app = express();
@@ -272,18 +273,40 @@ app.get("/home/api/gempa", async (req,res) => {
   });
 });
 
-app.post('/home/api/ytdl', async (req, res) => {
-  const videoURL = req.body.url;
+app.get('/home/api/ytdl', async (req, res) => {
+  const videoURL = req.query.url;
+
+  // Validasi URL YouTube
+  if (!validUrl.isWebUri(videoURL) || !ytdl.validateURL(videoURL)) {
+    return res.status(400).json({ error: 'URL yang diberikan bukan URL dari YouTube.' });
+  }
 
   try {
     const videoInfo = await ytdl.getInfo(videoURL);
-    const highestQualityFormat = ytdl.chooseFormat(videoInfo.formats, {
-      quality: 'highest'
-    });
 
-    res.header('Content-Disposition', `attachment; filename="${videoInfo.title}.mp4"`);
-    ytdl(videoURL, { format: highestQualityFormat }).pipe(res);
+    // Filter format untuk mendapatkan audio saja (tanpa video)
+    const audioFormats = ytdl.filterFormats(videoInfo.formats, 'audioonly');
+    if (audioFormats.length === 0) {
+      throw new Error('Tidak ada format audio yang tersedia.');
+    }
+
+    // Mengambil format audio dengan kualitas terbaik
+    const highestQualityAudioFormat = audioFormats[0];
+
+    // Data audio untuk dijadikan respons JSON
+    const audioData = {
+      title: videoInfo.videoDetails.title,
+      author: videoInfo.videoDetails.author.name,
+      duration: videoInfo.videoDetails.lengthSeconds,
+      url: videoURL,
+      format: highestQualityAudioFormat
+    };
+
+    // Mengonversi data audio menjadi JSON dengan opsi indentasi
+    const jsonString = JSON.stringify(audioData, null, 2);
+    res.setHeader('Content-Type', 'application/json');
+    res.send(jsonString);
   } catch (error) {
-    res.status(500).send('Terjadi kesalahan saat mengunduh video.');
+    res.status(500).json({ error: error.message || 'Terjadi kesalahan saat mengunduh audio.' });
   }
 });
