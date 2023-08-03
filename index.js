@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const ytdl = require('ytdl-core');
 const fs = require("fs");
 const { gempa } = require("zeev-gempa");
 const app = express();
@@ -19,6 +20,7 @@ const conf = express.static(path.resolve("./public"));
 app.use(conf);
 app.use(express.json());
 app.set("json spaces",1);
+app.use(express.urlencoded({ extended: true }));
 app.listen(port);
 
 //json file
@@ -268,4 +270,20 @@ app.get("/home/api/gempa", async (req,res) => {
   gempa().then(data => {
     res.json(data);
   });
+});
+
+app.post('/home/api/ytdl', async (req, res) => {
+  const videoURL = req.body.url;
+
+  try {
+    const videoInfo = await ytdl.getInfo(videoURL);
+    const highestQualityFormat = ytdl.chooseFormat(videoInfo.formats, {
+      quality: 'highest'
+    });
+
+    res.header('Content-Disposition', `attachment; filename="${videoInfo.title}.mp4"`);
+    ytdl(videoURL, { format: highestQualityFormat }).pipe(res);
+  } catch (error) {
+    res.status(500).send('Terjadi kesalahan saat mengunduh video.');
+  }
 });
