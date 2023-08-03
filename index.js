@@ -273,7 +273,7 @@ app.get("/home/api/gempa", async (req,res) => {
   });
 });
 
-app.get('/home/api/ytdl', async (req, res) => {
+app.get('/home/api/audio', async (req, res) => {
   const videoURL = req.query.url;
 
   // Validasi URL YouTube
@@ -308,5 +308,39 @@ app.get('/home/api/ytdl', async (req, res) => {
     res.send(jsonString);
   } catch (error) {
     res.status(500).json({ error: error.message || 'Terjadi kesalahan saat mengunduh audio.' });
+  }
+});
+
+app.get('/home/api/video', async (req, res) => {
+  const videoURL = req.query.url;
+
+  // Validasi URL YouTube
+  if (!validUrl.isWebUri(videoURL) || !ytdl.validateURL(videoURL)) {
+    return res.status(400).json({ error: 'URL yang diberikan bukan URL dari YouTube.' });
+  }
+
+  try {
+    const videoInfo = await ytdl.getInfo(videoURL);
+
+    // Mengambil format video dengan kualitas terbaik
+    const highestQualityVideoFormat = ytdl.chooseFormat(videoInfo.formats, {
+      quality: 'highestvideo'
+    });
+
+    // Data video untuk dijadikan respons JSON
+    const videoData = {
+      title: videoInfo.videoDetails.title,
+      author: videoInfo.videoDetails.author.name,
+      duration: videoInfo.videoDetails.lengthSeconds,
+      url: videoURL,
+      format: highestQualityVideoFormat
+    };
+
+    // Mengonversi data video menjadi JSON dengan opsi indentasi
+    const jsonString = JSON.stringify(videoData, null, 2);
+    res.setHeader('Content-Type', 'application/json');
+    res.send(jsonString);
+  } catch (error) {
+    res.status(500).json({ error: error.message || 'Terjadi kesalahan saat mengunduh video.' });
   }
 });
